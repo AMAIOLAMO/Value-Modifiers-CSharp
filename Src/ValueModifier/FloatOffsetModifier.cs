@@ -8,7 +8,7 @@ public class FloatOffsetModifier : IValueModifier<float>
 	public FloatOffsetModifier( float offset = 0 ) =>
 		Offset = offset;
 
-	public float Modify( float value ) =>
+	public float Apply( float value ) =>
 		value + Offset;
 	
 	public float Offset { get; set; }

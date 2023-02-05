@@ -8,7 +8,7 @@ public class DoubleOffsetModifier : IValueModifier<double>
 	public DoubleOffsetModifier( double offset = 0 ) =>
 		Offset = offset;
 
-	public double Modify( double value ) =>
+	public double Apply( double value ) =>
 		value + Offset;
 	
 	public double Offset { get; set; }

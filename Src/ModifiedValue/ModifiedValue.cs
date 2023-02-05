@@ -1,6 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
-
-namespace CxUtils.ValueModifiers;
+﻿namespace CxUtils.ValueModifiers;
 
 /// <summary>
 /// A concrete implementation of a modifier applier that handles a base value
@@ -11,7 +9,7 @@ public class ModifiedValue<T> : IModifiedValue<T>
 	{
 	}
 
-	public ModifiedValue( T baseValue, [NotNull] IModificationApplier<T> modificationApplier )
+	public ModifiedValue( T baseValue, IModificationApplier<T> modificationApplier )
 	{
 		BaseValue = baseValue;
 		_modificationApplier = modificationApplier;
@@ -22,7 +20,7 @@ public class ModifiedValue<T> : IModifiedValue<T>
 
 	public void ApplyToBase( IValueModifier<T> modifier )
 	{
-		BaseValue = modifier.Modify( BaseValue );
+		BaseValue = modifier.Apply( BaseValue );
 	}
 
 	public ModifierHandle AddModifier( IValueModifier<T> modifier ) =>

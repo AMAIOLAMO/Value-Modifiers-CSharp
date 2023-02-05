@@ -6,7 +6,7 @@
 public interface IValueModifier<T>
 {
 	/// <summary>
-	/// Applies this modifier and returns the result
+	/// Applies this modifier to the given <paramref name="value"/> and returns the result
 	/// </summary>
-	T Modify( T value );
+	T Apply( T value );
 }

@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace CxUtils.ValueModifiers;
+﻿namespace CxUtils.ValueModifiers;
 
 public class ModificationApplier<T> : IModificationApplier<T>
 {
@@ -9,7 +7,7 @@ public class ModificationApplier<T> : IModificationApplier<T>
 		T resultValue = value;
 
 		foreach ( KeyValuePair<ModifierHandle, IValueModifier<T>> pair in _modifiers )
-			resultValue = pair.Value.Modify( resultValue );
+			resultValue = pair.Value.Apply( resultValue );
 
 		return resultValue;
 	}
