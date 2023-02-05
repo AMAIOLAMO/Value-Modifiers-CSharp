@@ -29,5 +29,6 @@ public class ModificationApplier<T> : IModificationApplier<T>
 	}
 
 
+	// uses dictionary internally
 	readonly Dictionary<ModifierHandle, IValueModifier<T>> _modifiers = new();
 }

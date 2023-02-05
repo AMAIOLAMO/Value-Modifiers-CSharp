@@ -2,6 +2,9 @@
 
 namespace CxUtils.ValueModifiers;
 
+/// <summary>
+/// A concrete implementation of a modifier applier that handles a base value
+/// </summary>
 public class ModifiedValue<T> : IModifiedValue<T>
 {
 	public ModifiedValue( T baseValue = default ) : this( baseValue, new ModificationApplier<T>() )
@@ -16,6 +19,11 @@ public class ModifiedValue<T> : IModifiedValue<T>
 
 	public T CalculateValue() =>
 		_modificationApplier.Apply( BaseValue );
+
+	public void ApplyToBase( IValueModifier<T> modifier )
+	{
+		BaseValue = modifier.Modify( BaseValue );
+	}
 
 	public ModifierHandle AddModifier( IValueModifier<T> modifier ) =>
 		_modificationApplier.AddModifier( modifier );
