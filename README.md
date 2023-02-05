@@ -90,3 +90,5 @@ class MyPiMultiplyModifier : IValueModifier<float>
 	}
 }
 ```
+
+MIT licensed, CxRedix
