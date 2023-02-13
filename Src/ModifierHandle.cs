@@ -5,13 +5,15 @@
 /// </summary>
 public readonly struct ModifierHandle
 {
-	ModifierHandle( Guid guid ) =>
-		_guid = guid;
+	ModifierHandle( int id ) =>
+		_id = id;
 
 	public override int GetHashCode() =>
-		_guid.GetHashCode();
+		_id.GetHashCode();
 
-	readonly Guid _guid;
+	static readonly ConcurrentIntIncrementor _incrementor = new();
 
-	public static ModifierHandle New() => new( Guid.NewGuid() );
+	readonly int _id;
+
+	public static ModifierHandle New() => new( _incrementor.Next() );
 }
