@@ -1,7 +1,7 @@
 ﻿namespace CxUtils.ValueModifiers;
 
 /// <summary>
-///     A safety handle for modifiers
+///     A safety handle for modifiers used as an identifier to know which modifier it is representing
 /// </summary>
 public readonly struct ModifierHandle
 {

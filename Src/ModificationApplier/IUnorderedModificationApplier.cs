@@ -16,4 +16,9 @@ public interface IUnorderedModificationApplier<TValue> : IModificationApplier<TV
 	///     Adds the given <paramref name="modifiers" /> to this applier
 	/// </summary>
 	List<ModifierHandle> AddModifiers( IEnumerable<IValueModifier<TValue>> modifiers );
+	
+	/// <summary>
+	///     Adds the given <paramref name="modifiers" /> to this applier
+	/// </summary>
+	List<ModifierHandle> AddModifiers( params IValueModifier<TValue>[] modifiers );
 }

@@ -16,20 +16,17 @@ public class OrderedModificationApplier<T> : IOrderedModificationApplier<T>
 		return resultValue;
 	}
 
-	public void AddModifier( IValueModifier<T> modifier )
-	{
+	public void AddModifier( IValueModifier<T> modifier ) =>
 		_modifiers.Add( modifier );
-	}
 
-	public void RemoveModifierAt( int index )
-	{
+	public void RemoveModifierAt( int index ) =>
 		_modifiers.RemoveAt( index );
-	}
 
-	public void AddModifiers( IEnumerable<IValueModifier<T>> modifiers )
-	{
+	public void AddModifiers( IEnumerable<IValueModifier<T>> modifiers ) =>
 		_modifiers.AddRange( modifiers );
-	}
+
+	public void AddModifiers( params IValueModifier<T>[] modifiers ) =>
+		_modifiers.AddRange( modifiers );
 
 	readonly List<IValueModifier<T>> _modifiers = new();
 }

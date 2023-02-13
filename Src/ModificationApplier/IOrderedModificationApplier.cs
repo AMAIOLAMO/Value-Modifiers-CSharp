@@ -11,4 +11,14 @@ public interface IOrderedModificationApplier<TValue> : IModificationApplier<TVal
 	///     Removes a modifier from this applier using the given <paramref name="index" />
 	/// </summary>
 	void RemoveModifierAt( int index );
+
+	/// <summary>
+	///     Adds the given <paramref name="modifiers" /> to this applier
+	/// </summary>
+	void AddModifiers( IEnumerable<IValueModifier<TValue>> modifiers );
+
+	/// <summary>
+	///     Adds the given <paramref name="modifiers" /> to this applier
+	/// </summary>
+	void AddModifiers( params IValueModifier<TValue>[] modifiers );
 }
