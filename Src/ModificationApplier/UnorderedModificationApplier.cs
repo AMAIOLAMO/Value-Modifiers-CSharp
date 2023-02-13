@@ -1,16 +1,20 @@
 ﻿namespace CxUtils.ValueModifiers;
 
-public class ModificationApplier<T> : IModificationApplier<T>
+/// <summary>
+///     a concrete implementation of a modification applier which applies modifications without order
+/// </summary>
+public class UnorderedModificationApplier<T> : IUnorderedModificationApplier<T>
 {
-	public T Apply( T value )
+	public T ApplyTo( T value )
 	{
 		T resultValue = value;
 
 		foreach ( KeyValuePair<ModifierHandle, IValueModifier<T>> pair in _modifiers )
-			resultValue = pair.Value.Apply( resultValue );
+			resultValue = pair.Value.ApplyTo( resultValue );
 
 		return resultValue;
 	}
+
 
 	public ModifierHandle AddModifier( IValueModifier<T> modifier )
 	{
@@ -24,6 +28,16 @@ public class ModificationApplier<T> : IModificationApplier<T>
 	public void RemoveModifier( ModifierHandle handle )
 	{
 		_modifiers.Remove( handle );
+	}
+
+	public List<ModifierHandle> AddModifiers( IEnumerable<IValueModifier<T>> modifiers )
+	{
+		List<ModifierHandle> handles = new();
+
+		foreach ( IValueModifier<T> modifier in modifiers )
+			handles.Add( AddModifier( modifier ) );
+
+		return handles;
 	}
 
 

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace CxUtils.ValueModifiers;
+﻿namespace CxUtils.ValueModifiers;
 
 /// <summary>
 ///     A safety handle for modifiers
