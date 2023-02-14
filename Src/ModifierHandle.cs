@@ -1,4 +1,4 @@
-﻿namespace CxUtils.ValueModifiers;
+namespace CxUtils.ValueModifiers;
 
 /// <summary>
 ///     A safety handle for modifiers used as an identifier to know which modifier it is representing
