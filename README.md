@@ -1,6 +1,6 @@
 ﻿# Value Modifiers
 
-> Value Modifiers is a simple wrapper for applying multiply changes(Modification in our case) to a base(Unmodified) value.
+> Value Modifiers is a simple library for applying multiple changes(Modification in our case) to a base(Unmodified) value.
 
 ---
 ## How To Use
