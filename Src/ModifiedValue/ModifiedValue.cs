@@ -8,7 +8,7 @@ public class ModifiedValue<T> : IModifiedValue<T>
 	public ModifiedValue( T baseValue )
 	{
 		BaseValue = baseValue;
-		_modificationApplier = new OrderedModificationApplier<T>();
+		_modificationApplier = new ModificationApplier<T>();
 	}
 
 	public T CalculateValue() =>
@@ -34,5 +34,5 @@ public class ModifiedValue<T> : IModifiedValue<T>
 	public void ClearModifiers() =>
 		_modificationApplier.ClearModifiers();
 
-	readonly OrderedModificationApplier<T> _modificationApplier;
+	readonly ModificationApplier<T> _modificationApplier;
 }

@@ -4,7 +4,7 @@
 ///     A Concrete Implementation of a modification applier which applies modifications in the order which where they are
 ///     added, similarly like a list
 /// </summary>
-public class OrderedModificationApplier<T> : IModificationApplier<T>
+public class ModificationApplier<T> : IModificationApplier<T>
 {
 	public T ApplyTo( T value )
 	{
