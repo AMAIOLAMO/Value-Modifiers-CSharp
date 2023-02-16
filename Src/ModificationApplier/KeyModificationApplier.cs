@@ -3,7 +3,7 @@
 /// <summary>
 ///     a concrete implementation of a modification applier which applies modifications without order
 /// </summary>
-public class UnorderedModificationApplier<T> : IUnorderedModificationApplier<T>
+public class KeyModificationApplier<T> : IModificationApplier<T>
 {
 	public T ApplyTo( T value )
 	{
@@ -14,6 +14,8 @@ public class UnorderedModificationApplier<T> : IUnorderedModificationApplier<T>
 
 		return resultValue;
 	}
+
+	public int ModifierCount { get; }
 
 
 	public ModifierHandle AddModifier( IValueModifier<T> modifier )
@@ -47,6 +49,9 @@ public class UnorderedModificationApplier<T> : IUnorderedModificationApplier<T>
 
 		return handles;
 	}
+
+	public void ClearModifiers() =>
+		_modifiers.Clear();
 
 
 	// uses dictionary internally

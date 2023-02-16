@@ -4,7 +4,7 @@
 ///     A Concrete Implementation of a modification applier which applies modifications in the order which where they are
 ///     added, similarly like a list
 /// </summary>
-public class OrderedModificationApplier<T> : IOrderedModificationApplier<T>
+public class OrderedModificationApplier<T> : IModificationApplier<T>
 {
 	public T ApplyTo( T value )
 	{
@@ -15,6 +15,8 @@ public class OrderedModificationApplier<T> : IOrderedModificationApplier<T>
 
 		return resultValue;
 	}
+
+	public int ModifierCount => _modifiers.Count;
 
 	public void AddModifier( IValueModifier<T> modifier ) =>
 		_modifiers.Add( modifier );
@@ -27,6 +29,9 @@ public class OrderedModificationApplier<T> : IOrderedModificationApplier<T>
 
 	public void AddModifiers( params IValueModifier<T>[] modifiers ) =>
 		_modifiers.AddRange( modifiers );
+
+	public void ClearModifiers() =>
+		_modifiers.Clear();
 
 	readonly List<IValueModifier<T>> _modifiers = new();
 }

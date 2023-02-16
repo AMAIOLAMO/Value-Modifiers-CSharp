@@ -3,16 +3,12 @@
 /// <summary>
 ///     A concrete implementation of a unordered modifier applier that handles a base value
 /// </summary>
-public class UnOrderedModifiedValue<T> : IModifiedValue<T>
+public class KeyModifiedValue<T> : IModifiedValue<T>
 {
-	public UnOrderedModifiedValue( T baseValue ) : this( baseValue, new UnorderedModificationApplier<T>() )
-	{
-	}
-
-	public UnOrderedModifiedValue( T baseValue, IUnorderedModificationApplier<T> modificationApplier )
+	public KeyModifiedValue( T baseValue )
 	{
 		BaseValue = baseValue;
-		_modificationApplier = modificationApplier;
+		_modificationApplier = new KeyModificationApplier<T>();
 	}
 
 	public T CalculateValue() =>
@@ -26,10 +22,11 @@ public class UnOrderedModifiedValue<T> : IModifiedValue<T>
 	public ModifierHandle AddModifier( IValueModifier<T> modifier ) =>
 		_modificationApplier.AddModifier( modifier );
 
-	public void RemoveModifier( ModifierHandle handle )
-	{
+	public void RemoveModifier( ModifierHandle handle ) =>
 		_modificationApplier.RemoveModifier( handle );
-	}
 
-	readonly IUnorderedModificationApplier<T> _modificationApplier;
+	public void ClearModifiers() =>
+		_modificationApplier.ClearModifiers();
+
+	readonly KeyModificationApplier<T> _modificationApplier;
 }

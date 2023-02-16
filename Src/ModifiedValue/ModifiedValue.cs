@@ -3,16 +3,12 @@
 /// <summary>
 ///     A concrete implementation of an ordered modifier applier that handles a base value
 /// </summary>
-public class OrderedModifiedValue<T> : IModifiedValue<T>
+public class ModifiedValue<T> : IModifiedValue<T>
 {
-	public OrderedModifiedValue( T baseValue ) : this( baseValue, new OrderedModificationApplier<T>() )
-	{
-	}
-
-	public OrderedModifiedValue( T baseValue, IOrderedModificationApplier<T> modificationApplier )
+	public ModifiedValue( T baseValue )
 	{
 		BaseValue = baseValue;
-		_modificationApplier = modificationApplier;
+		_modificationApplier = new OrderedModificationApplier<T>();
 	}
 
 	public T CalculateValue() =>
@@ -29,10 +25,14 @@ public class OrderedModifiedValue<T> : IModifiedValue<T>
 	public void AddModifier( IValueModifier<T> modifier ) =>
 		_modificationApplier.AddModifier( modifier );
 
-	public void RemoveModifierAt( int index )
-	{
+	public void RemoveModifierAt( int index ) =>
 		_modificationApplier.RemoveModifierAt( index );
-	}
 
-	readonly IOrderedModificationApplier<T> _modificationApplier;
+	/// <summary>
+	///     Clears all instances of the given modifiers
+	/// </summary>
+	public void ClearModifiers() =>
+		_modificationApplier.ClearModifiers();
+
+	readonly OrderedModificationApplier<T> _modificationApplier;
 }
