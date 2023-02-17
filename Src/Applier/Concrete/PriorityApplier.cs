@@ -1,4 +1,6 @@
-﻿namespace CxUtils.ValueModifiers;
+﻿using CxUtils.ValueModifiers.Utilities;
+
+namespace CxUtils.ValueModifiers;
 
 // TODO: require documentation
 public class PriorityApplier<T> : IApplier<T>
@@ -28,6 +30,9 @@ public class PriorityApplier<T> : IApplier<T>
 	/// </summary>
 	public void Sort() =>
 		EnsureSorted();
+
+	public void Add( IValueModifier<T> modifier, int priority = 0 ) =>
+		Add( modifier.WrapPriority( priority ) );
 
 	public void Add( PriorityModifier<T> modifier )
 	{
