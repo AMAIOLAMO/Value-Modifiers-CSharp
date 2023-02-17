@@ -13,5 +13,5 @@ public class OffsetModifier<T> : IValueModifier<T> where T : IAdditionOperators<
 	public T ApplyTo( T value ) =>
 		value + Offset;
 
-	public T Offset { get; }
+	public T Offset { get; set; }
 }

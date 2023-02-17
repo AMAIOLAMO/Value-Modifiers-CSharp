@@ -12,5 +12,5 @@ public class MaxModifier<T> : IValueModifier<T> where T : IComparisonOperators<T
 			Max :
 			value;
 
-	public T Max { get; }
+	public T Max { get; set; }
 }

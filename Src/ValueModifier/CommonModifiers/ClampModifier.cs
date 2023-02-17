@@ -25,6 +25,6 @@ public class ClampModifier<T> : IValueModifier<T> where T : IComparisonOperators
 		return value;
 	}
 
-	public T Min { get; }
-	public T Max { get; }
+	public T Min { get; set; }
+	public T Max { get; set; }
 }

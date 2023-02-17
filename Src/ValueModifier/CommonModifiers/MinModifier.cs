@@ -12,5 +12,5 @@ public class MinModifier<T> : IValueModifier<T> where T : IComparisonOperators<T
 			Min :
 			value;
 
-	public T Min { get; }
+	public T Min { get; set; }
 }

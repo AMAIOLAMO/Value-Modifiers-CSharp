@@ -6,11 +6,6 @@
 public interface IApplier<TValue> : IValueModifier<TValue>
 {
 	/// <summary>
-	///     Clears all modifiers from this applier
-	/// </summary>
-	void Clear();
-
-	/// <summary>
 	///     The amount of modifiers the current applier contains
 	/// </summary>
 	int Count { get; }

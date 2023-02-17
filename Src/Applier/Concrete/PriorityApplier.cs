@@ -57,7 +57,6 @@ public class PriorityApplier<T> : IApplier<T>
 			case 0:
 			case 1:
 				_sorted = false;
-
 				break;
 		}
 	}
