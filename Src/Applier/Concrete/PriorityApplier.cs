@@ -1,14 +1,13 @@
 ﻿namespace CxUtils.ValueModifiers;
 
-// TODO: require unit tests for this applier
 // TODO: require documentation
 public class PriorityApplier<T> : IApplier<T>
 {
 	public T ApplyTo( T value )
 	{
-		T resultValue = value;
-
 		EnsureSorted();
+
+		T resultValue = value;
 
 		foreach ( PriorityModifier<T> priorityModifier in _priorityModifiers )
 			resultValue = priorityModifier.ApplyTo( resultValue );
@@ -22,7 +21,7 @@ public class PriorityApplier<T> : IApplier<T>
 		_sorted = true;
 	}
 
-	public int Count { get; }
+	public int Count => _priorityModifiers.Count;
 
 	/// <summary>
 	///     Sorts the modifiers
@@ -48,11 +47,11 @@ public class PriorityApplier<T> : IApplier<T>
 
 	void OnItemsUpdated()
 	{
-		switch ( _priorityModifiers.Count )
+		switch ( Count )
 		{
 			case 0:
 			case 1:
-				_sorted = true;
+				_sorted = false;
 
 				break;
 		}
