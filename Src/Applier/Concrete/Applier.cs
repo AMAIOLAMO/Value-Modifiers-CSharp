@@ -24,7 +24,7 @@ public class Applier<T> : IApplier<T>
 	public void AddModifier( IValueModifier<T> modifier ) =>
 		_modifiers.Add( modifier );
 
-	public void RemoveAt( int index ) =>
+	public void RemoveModifierAt( int index ) =>
 		_modifiers.RemoveAt( index );
 
 	public void AddModifiers( IEnumerable<IValueModifier<T>> modifiers ) =>

@@ -26,7 +26,7 @@ public class Applicable<T> : IApplicable<T>
 		_applier.AddModifier( modifier );
 
 	public void RemoveModifierAt( int index ) =>
-		_applier.RemoveAt( index );
+		_applier.RemoveModifierAt( index );
 
 	/// <summary>
 	///     Clears all modifiers from this modified value
