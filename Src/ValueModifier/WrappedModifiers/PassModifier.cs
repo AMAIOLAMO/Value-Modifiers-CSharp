@@ -1,4 +1,6 @@
-﻿namespace CxUtils.ValueModifiers.NestedModifiers;
+﻿using System.Diagnostics.Contracts;
+
+namespace CxUtils.ValueModifiers;
 
 /// <summary>
 ///     Filters the value when the given filterFactory returns true before <see cref="ApplyTo" /> is reached
@@ -22,4 +24,7 @@ public class PassModifier<TValue> : IValueModifier<TValue>
 	public IValueModifier<TValue> AppliedModifier { get; set; }
 
 	readonly Predicate<TValue> _filterFactory;
+}
+public static class PassModifierExtensions
+{
 }

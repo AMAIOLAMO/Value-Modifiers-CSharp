@@ -30,7 +30,7 @@ Console.WriteLine( modifiedValue ); // outputs 4
 Value Modifiers has 3 main types:
 
 - Value Modifiers - represents a modifier which applies some action to the value (the core concept of this library)
-- Applier - Holds a list of value modifiers and applies them
+- Applier - Holds a list of value modifiers and applies them (it is also a kind of Value Modifier)
 - Applicable - Almost the same as applier, but this time the value that get's applied (base value) will be handled
 
 ### `Applier<TValue>`
