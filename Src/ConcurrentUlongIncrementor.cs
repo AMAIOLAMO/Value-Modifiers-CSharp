@@ -1,5 +1,8 @@
 ﻿namespace CxUtils.ValueModifiers;
 
+/// <summary>
+///     Represents a <see cref="ulong" /> based identifier incrementor
+/// </summary>
 internal class ConcurrentUlongIncrementor
 {
 	public ulong Next()

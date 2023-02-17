@@ -1,14 +1,14 @@
 ﻿namespace CxUtils.ValueModifiers;
 
 /// <summary>
-///     represents a base value that could be modified
+///     represents a base value that could be modified / Applied onto
 /// </summary>
-public interface IModifiedValue<out T>
+public interface IApplicable<out T>
 {
 	/// <summary>
 	///     Calculates the value by applying every modifier and returning the result (does not modify the base value)
 	/// </summary>
-	T CalculateValue();
+	T CalculateApplied();
 
 	/// <summary>
 	///     The absolute base value (unmodified value)
