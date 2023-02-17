@@ -18,7 +18,7 @@ public class KeyApplier<T> : IApplier<T>
 	public int Count { get; }
 
 
-	public ModifierHandle AddModifier( IValueModifier<T> modifier )
+	public ModifierHandle Add( IValueModifier<T> modifier )
 	{
 		var newHandle = ModifierHandle.New();
 
@@ -30,22 +30,22 @@ public class KeyApplier<T> : IApplier<T>
 	public void Remove( ModifierHandle handle ) =>
 		_modifiers.Remove( handle );
 
-	public List<ModifierHandle> AddModifiers( IEnumerable<IValueModifier<T>> modifiers )
+	public List<ModifierHandle> AddRange( IEnumerable<IValueModifier<T>> modifiers )
 	{
 		List<ModifierHandle> handles = new();
 
 		foreach ( IValueModifier<T> modifier in modifiers )
-			handles.Add( AddModifier( modifier ) );
+			handles.Add( Add( modifier ) );
 
 		return handles;
 	}
 
-	public List<ModifierHandle> AddModifiers( params IValueModifier<T>[] modifiers )
+	public List<ModifierHandle> AddMultiple( params IValueModifier<T>[] modifiers )
 	{
 		List<ModifierHandle> handles = new();
 
 		foreach ( IValueModifier<T> modifier in modifiers )
-			handles.Add( AddModifier( modifier ) );
+			handles.Add( Add( modifier ) );
 
 		return handles;
 	}

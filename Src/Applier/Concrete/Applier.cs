@@ -21,16 +21,16 @@ public class Applier<T> : IApplier<T>
 	public void Clear() =>
 		_modifiers.Clear();
 
-	public void AddModifier( IValueModifier<T> modifier ) =>
+	public void Add( IValueModifier<T> modifier ) =>
 		_modifiers.Add( modifier );
 
-	public void RemoveModifierAt( int index ) =>
+	public void RemoveAt( int index ) =>
 		_modifiers.RemoveAt( index );
 
-	public void AddModifiers( IEnumerable<IValueModifier<T>> modifiers ) =>
+	public void AddRange( IEnumerable<IValueModifier<T>> modifiers ) =>
 		_modifiers.AddRange( modifiers );
 
-	public void AddModifiers( params IValueModifier<T>[] modifiers ) =>
+	public void AddMultiple( params IValueModifier<T>[] modifiers ) =>
 		_modifiers.AddRange( modifiers );
 
 	readonly List<IValueModifier<T>> _modifiers = new();

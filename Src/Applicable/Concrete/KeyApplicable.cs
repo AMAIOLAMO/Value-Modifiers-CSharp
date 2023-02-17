@@ -20,7 +20,7 @@ public class KeyApplicable<T> : IApplicable<T>
 		BaseValue = CalculateApplied();
 
 	public ModifierHandle AddModifier( IValueModifier<T> modifier ) =>
-		_applier.AddModifier( modifier );
+		_applier.Add( modifier );
 
 	public void RemoveModifier( ModifierHandle handle ) =>
 		_applier.Remove( handle );

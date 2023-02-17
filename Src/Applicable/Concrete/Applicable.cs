@@ -23,10 +23,10 @@ public class Applicable<T> : IApplicable<T>
 		BaseValue = CalculateApplied();
 
 	public void AddModifier( IValueModifier<T> modifier ) =>
-		_applier.AddModifier( modifier );
+		_applier.Add( modifier );
 
 	public void RemoveModifierAt( int index ) =>
-		_applier.RemoveModifierAt( index );
+		_applier.RemoveAt( index );
 
 	/// <summary>
 	///     Clears all modifiers from this modified value
