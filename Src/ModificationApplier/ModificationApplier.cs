@@ -30,7 +30,7 @@ public class ModificationApplier<T> : IModificationApplier<T>
 	public void AddModifiers( params IValueModifier<T>[] modifiers ) =>
 		_modifiers.AddRange( modifiers );
 
-	public void ClearModifiers() =>
+	public void Clear() =>
 		_modifiers.Clear();
 
 	readonly List<IValueModifier<T>> _modifiers = new();

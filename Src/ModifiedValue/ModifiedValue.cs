@@ -29,10 +29,10 @@ public class ModifiedValue<T> : IModifiedValue<T>
 		_modificationApplier.RemoveModifierAt( index );
 
 	/// <summary>
-	///     Clears all instances of the given modifiers
+	///     Clears all modifiers from this modified value
 	/// </summary>
-	public void ClearModifiers() =>
-		_modificationApplier.ClearModifiers();
+	public void Clear() =>
+		_modificationApplier.Clear();
 
 	readonly ModificationApplier<T> _modificationApplier;
 }

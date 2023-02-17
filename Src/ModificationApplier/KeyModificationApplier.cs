@@ -50,7 +50,7 @@ public class KeyModificationApplier<T> : IModificationApplier<T>
 		return handles;
 	}
 
-	public void ClearModifiers() =>
+	public void Clear() =>
 		_modifiers.Clear();
 
 

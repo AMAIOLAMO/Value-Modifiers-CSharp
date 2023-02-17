@@ -25,8 +25,8 @@ public class KeyModifiedValue<T> : IModifiedValue<T>
 	public void RemoveModifier( ModifierHandle handle ) =>
 		_modificationApplier.RemoveModifier( handle );
 
-	public void ClearModifiers() =>
-		_modificationApplier.ClearModifiers();
+	public void Clear() =>
+		_modificationApplier.Clear();
 
 	readonly KeyModificationApplier<T> _modificationApplier;
 }

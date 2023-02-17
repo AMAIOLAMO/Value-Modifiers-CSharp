@@ -3,12 +3,12 @@
 /// <summary>
 ///     Represents a list of modifiers that could be applied on a base / unmodified value
 /// </summary>
-public interface IModificationApplier<TValue>
+public interface IModificationApplier<TValue> : IValueModifier<TValue>
 {
 	/// <summary>
-	///     Applies all the modifiers from this applier to the <paramref name="value" />
+	///     Clears all modifiers from this applier
 	/// </summary>
-	TValue ApplyTo( TValue value );
+	void Clear();
 
 	/// <summary>
 	///     The amount of modifiers the current applier contains
